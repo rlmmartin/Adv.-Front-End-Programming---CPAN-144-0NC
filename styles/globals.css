@@ -1,0 +1,4 @@
+/* i removed the existing css, because i will be incharge of it in the end */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
