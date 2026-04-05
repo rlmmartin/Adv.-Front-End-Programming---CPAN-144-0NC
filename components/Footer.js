@@ -1,10 +1,12 @@
 export default function Footer() {
   return (
+    //footer container
     <footer className="footer">
-      
+      {/*main footer content*/}
       <div className="footer-container">
+        {/*website name*/}
         <div className="footer-logo">Words Mall</div>
-
+        {/*social media icons*/}
         <div className="footer-socials">
 
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
@@ -21,7 +23,7 @@ export default function Footer() {
 
         </div>
       </div>
-
+        {/*copyright section at the bottom*/}
       <div className="footer-bottom">
         © 2026 Words Mall. All rights reserved.
       </div>
