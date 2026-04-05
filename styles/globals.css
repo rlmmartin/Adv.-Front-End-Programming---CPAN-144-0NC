@@ -2,3 +2,120 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/*navbar styles*/
+.navbar {
+  background-color: #1f2937;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-container {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  font-size: 20px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar-logo:hover {
+  color: #d1d5db;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  align-items: center;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.navbar-link:hover {
+  color: #d1d5db;
+}
+
+
+/*footer styles with hoverable social media icons*/
+
+.footer {
+  background-color: #1f2937;
+  color: white;
+  margin-top: 0;
+}
+
+/* Top section (title + socials stacked) */
+.footer-container {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.footer-logo {
+  font-size: 20px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.footer-logo:hover {
+  color: #d1d5db;
+}
+
+/* SOCIAL ICONS */
+.footer-socials {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icon {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
+/* the copyright section */
+.footer-bottom {
+  border-top: 1px solid #4b5563;
+  text-align: center;
+  padding: 10px;
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+.social-icon {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+  filter: brightness(1.2);
+}
