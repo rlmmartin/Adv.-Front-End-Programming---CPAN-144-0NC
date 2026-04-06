@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import WordCard from '../components/Wordcard';
 
 /* somewhere here is where the ApI logic will be and where the Cards for the words will be */
 

@@ -11,17 +11,17 @@ export default function Navbar() {
         {/*navigation links on the right side of the navbar*/}
         <ul className="navbar-links">
           <li>
-            <Link href="/pages/index" className="navbar-link">
+            <Link href="/" className="navbar-link">
               Home
             </Link>
           </li>
           <li>
-            <Link href="/pages/catalog" className="navbar-link">
+            <Link href="/catalog" className="navbar-link">
               Catalog
             </Link>
           </li>
           <li>
-            <Link href="/pages/cart" className="navbar-link">
+            <Link href="/cart" className="navbar-link">
               Cart
             </Link>
           </li>
