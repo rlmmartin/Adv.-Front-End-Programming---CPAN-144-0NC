@@ -6,10 +6,10 @@ import CartContext from '../context/CartContext';
 // Ensure the navbar and footer are on every page and manage the global cart state
 export default function App({ Component, pageProps }) {
   
-  // This holds all the words the user clicks "buy" on.
+  //This holds all the words the user clicks "buy" on.
   const [cart, setCart] = useState([]);
 
-  //  Adds a new word to the cart array without removing old ones
+  
   const addtoCart = (word) => {
     setCart((prevCart) => [...prevCart, word]);
   };
