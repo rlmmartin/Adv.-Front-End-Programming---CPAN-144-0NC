@@ -1,28 +1,28 @@
 import "../styles/globals.css";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Layout from "./layout"; 
 import { useState } from "react";
-import cartContext from '../context/CartContext';
+import CartContext from '../context/CartContext';
 
-//ensure the navbar and footer are on every page of the website
+// Ensure the navbar and footer are on every page and manage the global cart state
 export default function App({ Component, pageProps }) {
   
-  //This will hold all the words the user clicks buy on to their cart.
+  // This holds all the words the user clicks "buy" on.
   const [cart, setCart] = useState([]);
 
-  // This addas a new word to the cart without removing the old ones.
+  //  Adds a new word to the cart array without removing old ones
   const addtoCart = (word) => {
-    setCart((prevCart) => [...prevCart,word]);
+    setCart((prevCart) => [...prevCart, word]);
   };
 
   return (
     <>
-      {/* The CartContext.Provider will share the cart and addtoCart with every page of the website. */}
-      <cartContext.Provider value={{ cart, addtoCart }}>
-        <Navbar />
-        <Component {...pageProps} />
-        <Footer />
-      </cartContext.Provider>
+      {/* The CartContext.Provider shares the cart and addtoCart with every page */}
+      <CartContext.Provider value={{ cart, addtoCart }}>
+        {/* Using the Layout component to automatically include Navbar and Footer */}
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </CartContext.Provider>
     </>
   );
 }
