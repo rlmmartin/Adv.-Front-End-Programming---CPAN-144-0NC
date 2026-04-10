@@ -211,11 +211,14 @@ h2:first-of-type {
 /* ----------------- CART  STYLES ------------ */
 /* Added by raymond for the nice n elegant cart list look */
 
+
 .cart-item {
   list-style: none;
   background-color: #ffffff;
-  border-left: 5px solid var(--mall-gold); /* A gold accent bar on the side */
-  border-right: 1px solid var(--sky-glow);
+  /* Gold accent bars on BOTH sides now */
+  border-left: 7px solid var(--mall-gold); 
+  border-right: 7px solid var(--mall-gold); 
+  /* Top and bottom stay sky-blue to keep the frame look */
   border-top: 1px solid var(--sky-glow);
   border-bottom: 1px solid var(--sky-glow);
   padding: 16px 24px;
@@ -231,9 +234,10 @@ h2:first-of-type {
   transition: all 0.3s ease;
 }
 
-/* This make the items glow sky-blue when you look at them */
+/* Items glow sky-blue when you look at them */
 .cart-item:hover {
   transform: scale(1.02);
+ 
   border-color: var(--sky-glow);
   box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
   color: var(--sky-glow);
