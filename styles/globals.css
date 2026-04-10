@@ -215,10 +215,10 @@ h2:first-of-type {
 .cart-item {
   list-style: none;
   background-color: #ffffff;
-  /* Gold accent bars on BOTH sides now */
+
   border-left: 7px solid var(--mall-gold); 
   border-right: 7px solid var(--mall-gold); 
-  /* Top and bottom stay sky-blue to keep the frame look */
+ 
   border-top: 1px solid var(--sky-glow);
   border-bottom: 1px solid var(--sky-glow);
   padding: 16px 24px;
@@ -234,7 +234,7 @@ h2:first-of-type {
   transition: all 0.3s ease;
 }
 
-/* Items glow sky-blue when you look at them */
+/* stuff glow sky-blue when you look at them */
 .cart-item:hover {
   transform: scale(1.02);
  
