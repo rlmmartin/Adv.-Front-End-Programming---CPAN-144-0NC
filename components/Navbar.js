@@ -1,3 +1,5 @@
+/* Done by Jessica Apr 4 */
+
 import Link from "next/link";
 import { useContext } from 'react';
 import CartContext from '../context/CartContext'; 

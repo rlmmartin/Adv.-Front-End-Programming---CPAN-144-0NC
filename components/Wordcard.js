@@ -1,22 +1,28 @@
+/* i forgot who's responsibility this was, but i updated it, Raymond Apr 9 */
+
 export default function WordCard({ word, definition, onBuy }) {
   return (
     // main card container
-    <div className="border rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow bg-white">
+    /* Added by raymond for the blue/gold word box style */
+    <div className="word-card-box">
 
       {/* display the word */}
-      <h2 className="text-2xl font-bold text-blue-600 capitalize">
+      {/* Added by raymond for proper header scaling */}
+      <h2 className="capitalize">
         {word}
       </h2>
       
       {/* display the definition */}
-      <p className="mt-2 text-gray-600 italic">
+      {/* Added by raymond for consistent blue text and italic style, so everything looks nice */}
+      <p className="italic">
         "{definition}"
       </p>
       
       {/* button to add word to cart */}
+      {/* Added by raymond for the very nice button theme */}
       <button 
         onClick={onBuy}
-        className="mt-4 w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-700 font-semibold"
+        className="btn-mall mt-4"
       >
         Buy Word
       </button>

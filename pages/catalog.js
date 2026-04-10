@@ -1,17 +1,21 @@
+/* IMPORTANT */
+/* The below was completed by Daniil on April 8.
+Edit 1 - So far (as at April 9) only a few lines were changed, so that the css is consistent - Raymond
+*/
+
 import Head from 'next/head';
 import WordCard from '../components/Wordcard';
 import { useContext, useState } from 'react';
 import axios from "axios";
-import cartContext from '../context/CartContext';
+import CartContext from '../context/CartContext'; // edit by raymond - capitalized a word
 
-/* somewhere here is where the ApI logic will be and where the Cards for the words will be */
 
 export default function Catalog() {
 
   const [words, setWords] = useState([]);
   const [loading, setloading] = useState(false);
   //This grabs the addtoCart function so we can add words from this page.
-  const { addtoCart } = useContext(cartContext);
+  const { addtoCart } = useContext(CartContext);
 
   // fills the "words" array with 0-5 random words 
   // (dictionary API may not have the definitions for some words)
@@ -36,7 +40,7 @@ export default function Catalog() {
         const meanings = defRes.data[0].meanings;
         const definitions = meanings[Math.floor(Math.random() * meanings.length)].definitions;
         const randomDefinition = definitions[Math.floor(Math.random() * definitions.length)].definition;
-       
+        
         console.log(defRes)
         newWords.push({
           id: i + 1,
@@ -61,8 +65,9 @@ export default function Catalog() {
       </Head>
 
       <main className="text-center">
-        <h1 className="text-4xl font-bold text-blue-600">The Creative Catalog</h1>
-        <p className="mt-4 text-lg text-gray-700">
+        <h1 >The Creative Catalog</h1>
+        {/* Added by raymond for consistent global paragraph styling */}
+        <p className="mt-4">
           On this page, you can search our massive dictionary and find awesome, astounding and cool words!!!
         </p>
         
@@ -82,14 +87,11 @@ export default function Catalog() {
               onBuy={() => addtoCart(item)} 
             />
           ))}
+          {/* Added by raymond for blue/gold button styling */}
           <button 
             onClick={() => getWords()}
-            className="mt-4 w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-700 font-semibold"
+            className="btn-mall mt-4"
           >Roll</button>
-            {/* down here is where we will have a searchbar and where the words will appear */}
-          <p className="max-w-md mx-auto text-gray-600">
-            ------Nb. Our search bar 4 the site and the word cards will be constructed here pretty soon.
-          </p>
         </div>
       </main>
     </div>

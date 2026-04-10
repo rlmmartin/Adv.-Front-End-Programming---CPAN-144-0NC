@@ -1,3 +1,5 @@
+/* Done by Jessica Apr 4 */
+
 export default function Footer() {
   return (
     //footer container
