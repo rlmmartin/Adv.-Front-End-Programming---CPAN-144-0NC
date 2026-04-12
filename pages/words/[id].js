@@ -27,7 +27,7 @@ export default function WordDetails() {
         
         {/* lastly this div uses our standard card styling for design consistency  */}
         <div className="word-card-box">
-          <h2 className="text-[#d4af37] text-2xl mb-4">Deep Dive</h2>
+          <h2 className="text-[#d4af37] text-2xl mb-4">Word Profile</h2>
           <p className="mb-4">
             You are currently looking at the somewhat detailed view for the word <strong>"{id}"</strong>. 
           </p>
