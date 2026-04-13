@@ -23,34 +23,35 @@ function CardBody({ definition }) {
     // April 9h: display the definition
     // April 9th: Added by raymond for consistent blue text and italic style, so everything looks nice
     <p className="italic">
-      "{definition}"
+      {definition}
     </p>
   );
 }
 
 
-function CardFooter({ onBuy }) {
+function CardFooter({ onBuy, inCart }) {
   return (
     // April 9h: button to add word to cart
     // April 9th: Added by raymond for the very nice button theme
     <button 
       onClick={onBuy}
-      className="btn-mall mt-4"
+      className={`btn-mall mt-4 ${inCart ? "bg-gray-400 cursor-not-allowed" : "btn-mall"}`}
+      disabled={inCart}
     >
-      Buy Word
+      {inCart ? "In Cart" : "Buy Word"}
     </button>
   );
 }
 
 /* April 9th: i forgot who's responsibility this was, but i updated it, Raymond Apr 9 */
-export default function WordCard({ word, definition, onBuy }) {
+export default function WordCard({ word, definition, onBuy, inCart}) {
   return (
     // April 9th: main card container
     /* April 9th: Added by raymond for the blue/gold word box style */
     <div className="word-card-box">
       <CardHeader word={word} />
       <CardBody definition={definition} />
-      <CardFooter onBuy={onBuy} />
+      <CardFooter onBuy={onBuy} inCart={inCart} />
     </div>
   );
 }

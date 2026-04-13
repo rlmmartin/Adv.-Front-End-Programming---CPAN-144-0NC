@@ -16,7 +16,7 @@ export default function Catalog() {
   const [loading, setloading] = useState(false);
   const [search, setSearch] = useState("");
   //This grabs the addtoCart function so we can add words from this page.
-  const { addtoCart } = useContext(CartContext);
+  const { addtoCart, cart } = useContext(CartContext);
   const WORDS_PER_ROLL = 10;
 
   // fills the "words" array with 0-5 random words 
@@ -62,7 +62,7 @@ export default function Catalog() {
   if (loading) {
     wordsRolled = <div>Loading...</div>
   } else if (words.length === 0) {
-    wordsRolled = <div>No words found. Click "Roll" to generate words</div>
+    wordsRolled = <div>No words found. Click Roll to generate words</div>
   } else {
 
     if (search) {
@@ -77,15 +77,11 @@ export default function Catalog() {
         word={item.word}
         definition={item.definition}
         onBuy={() => addtoCart(item)} 
+        inCart={cart.some((cartItem) => cartItem.word === item.word)}
       />
     ))
 
   }
-    
-  // //This is just for testing this will be replaced with API - Danil
-  // const testWords = [
-  //   { id:1, word: "Six-Seven", definition: "67 is a 2025 viral slang term, internet meme" }
-  // ];
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4">

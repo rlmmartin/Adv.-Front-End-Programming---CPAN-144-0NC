@@ -8,7 +8,7 @@ import CartContext from '../context/CartContext';
 
 export default function Cart() {
   //This will grab the car list from the context and show it to the user.
-  const { cart } = useContext(CartContext);
+  const { cart, removeCart } = useContext(CartContext);
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4">
@@ -39,9 +39,14 @@ export default function Cart() {
                 //This creates a list item for each word in the cart, showing the word name.
                 <li
                   key={index}
-                  className="cart-item">
+                  className="cart-item flex flex-col items-center">
                   {/* this will display the word. */}
-                  {item.word}
+                  <span className="font-bold text-xl">{item.word}</span>
+
+                  <button onClick={() => removeCart(item)} 
+                  className="remove-btn mt-2">
+                    Remove From Cart
+                  </button>
                 </li>
               ))}
             </ul>

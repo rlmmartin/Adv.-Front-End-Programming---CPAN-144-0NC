@@ -204,8 +204,21 @@ h2:first-of-type {
   box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
 }
 
+.remove-btn {
+  background-color: limegreen;
 
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding:  8px 20px;
+  font-weight: bold;
+  transition: background 0.2s;
+  margin-top: 8px;
+}
 
+.remove-btn:hover {
+  background-color: red;
+}
 
 
 /* ----------------- CART  STYLES ------------ */
