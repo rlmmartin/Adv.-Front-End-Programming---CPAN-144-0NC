@@ -14,8 +14,10 @@ export default function Catalog() {
 
   const [words, setWords] = useState([]);
   const [loading, setloading] = useState(false);
+  const [search, setSearch] = useState("");
   //This grabs the addtoCart function so we can add words from this page.
   const { addtoCart } = useContext(CartContext);
+  const WORDS_PER_ROLL = 10;
 
   // fills the "words" array with 0-5 random words 
   // (dictionary API may not have the definitions for some words)
@@ -23,7 +25,7 @@ export default function Catalog() {
     // API call goes here
     let newWords = [];
     setloading(true);
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < WORDS_PER_ROLL; i++) {
       try {
         // get random word
         const wordRes = await axios.get("https://api.api-ninjas.com/v2/randomword",
@@ -53,6 +55,33 @@ export default function Catalog() {
     setWords(newWords)
   }
 
+  // April 12th: moved displaying words logic from JSX to improve readability
+  // April 12th: added search bar filtering
+  let wordsRolled;
+  let filteredWords = [...words];
+  if (loading) {
+    wordsRolled = <div>Loading...</div>
+  } else if (words.length === 0) {
+    wordsRolled = <div>No words found. Click "Roll" to generate words</div>
+  } else {
+
+    if (search) {
+      filteredWords = filteredWords.filter((item) => 
+        item.word.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+
+    wordsRolled = filteredWords.map((item) => (
+      <WordCard
+        key={item.id}
+        word={item.word}
+        definition={item.definition}
+        onBuy={() => addtoCart(item)} 
+      />
+    ))
+
+  }
+    
   // //This is just for testing this will be replaced with API - Danil
   // const testWords = [
   //   { id:1, word: "Six-Seven", definition: "67 is a 2025 viral slang term, internet meme" }
@@ -70,23 +99,14 @@ export default function Catalog() {
         <p className="mt-4">
           On this page, you can search our massive dictionary and find awesome, astounding and cool words!!!
         </p>
-        
+
+        <input className="word-card-box" placeholder="Enter a word to search for" onChange={(e) => (setSearch(e.target.value))}/>
+
         <div className="mt-8 p-4">
           {/* This will show a card for each word and when you click the buy button it will add it to the cart. */}
           {/* "Loading..." while loading words */}
           {/* "Nothing Found" if no words were found */}
-          {loading 
-          ? <div>Loading...</div>
-          : words.length === 0
-          ? <div>No words found. Click "Roll" to generate words</div>
-          : words.map((item) => (
-            <WordCard
-              key={item.id}
-              word={item.word}
-              definition={item.definition}
-              onBuy={() => addtoCart(item)} 
-            />
-          ))}
+          {wordsRolled}
           {/* Added by raymond for blue/gold button styling */}
           <button 
             onClick={() => getWords()}
