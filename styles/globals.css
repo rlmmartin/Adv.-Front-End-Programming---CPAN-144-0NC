@@ -1,0 +1,257 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* - --- */
+:root {
+  --deep-space-blue: #0a1128; 
+  --sky-glow: #00d2ff;       
+  --mall-gold: #d4af37;       
+}
+
+/* ---------------- The styles for the navbar ------------ */
+.navbar {
+  background-color: var(--deep-space-blue);
+  color: white;
+  border-bottom: 2px solid var(--sky-glow);
+  box-shadow: 0 4px 15px rgba(0, 210, 255, 0.2);
+}
+
+.navbar-container {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--sky-glow); 
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.navbar-logo:hover {
+  color: var(--mall-gold);
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.navbar-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  align-items: center;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-link:hover {
+  color: var(--mall-gold);
+  transform: translateY(-2px);
+}
+
+/* ----------- The styles for the footer ---- */
+.footer {
+  background-color: var(--deep-space-blue);
+  color: white;
+  margin-top: auto; 
+  border-top: 2px solid var(--sky-glow);
+}
+
+.footer-container {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.footer-logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--sky-glow);
+  transition: color 0.3s ease;
+}
+
+.footer-logo:hover {
+  color: var(--mall-gold);
+}
+
+.footer-socials {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icon {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.2) rotate(5deg);
+  opacity: 1;
+  filter: drop-shadow(0 0 5px var(--sky-glow));
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #060b19; 
+  text-align: center;
+  padding: 12px;
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+
+
+
+/* ------------------ Here is for the text styles -all over ---- */
+
+h1 {
+  color: var(--deep-space-blue);
+  font-weight: 800;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+  letter-spacing: -0.05em;
+}
+
+/* this makes the paragraphs blue */
+p {
+  color: #2241a5; 
+  line-height: 1.6;
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Global subheadings with spacing */
+h2 {
+  color: var(--mall-gold);
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+h2:first-of-type {
+  margin-top: 0;
+}
+
+
+
+
+
+
+
+
+
+
+/* ---------- WORD CARDS and BUTTONS ----- */
+/* Added by raymond apr 9 for blue/gold theme on catalog items */
+
+.word-card-box {
+  background-color: #ffffff;
+  border: 2px solid var(--sky-glow);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 210, 255, 0.15);
+  transition: all 0.3s ease;
+}
+
+.word-card-box:hover {
+  transform: translateY(-5px);
+  border-color: var(--mall-gold);
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+}
+
+.btn-mall {
+  background-color: var(--deep-space-blue);
+  color: white;
+  border: 2px solid var(--sky-glow);
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.btn-mall:hover {
+  background-color: var(--mall-gold);
+  color: var(--deep-space-blue);
+  border-color: var(--mall-gold);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+
+
+
+
+/* ----------------- CART  STYLES ------------ */
+/* Added by raymond for the nice n elegant cart list look */
+
+
+.cart-item {
+  list-style: none;
+  background-color: #ffffff;
+
+  border-left: 7px solid var(--mall-gold); 
+  border-right: 7px solid var(--mall-gold); 
+ 
+  border-top: 1px solid var(--sky-glow);
+  border-bottom: 1px solid var(--sky-glow);
+  padding: 16px 24px;
+  border-radius: 8px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--deep-space-blue);
+  text-transform: capitalize;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 210, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+/* stuff glow sky-blue when you look at them */
+.cart-item:hover {
+  transform: scale(1.02);
+ 
+  border-color: var(--sky-glow);
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
+  color: var(--sky-glow);
+}
+
+/* active page link styling */
+.navbar-link.active {
+  color: var(--mall-gold); /* matches your hover color */
+  border-bottom: 2px solid var(--sky-glow);
+  padding-bottom: 4px;
+}
+
+.navbar-link.active {
+  color: var(--mall-gold);
+  border-bottom: 2px solid var(--sky-glow);
+  text-shadow: 0 0 8px rgba(0, 210, 255, 0.6);
+}
