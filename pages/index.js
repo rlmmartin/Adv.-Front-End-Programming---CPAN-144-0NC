@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Footer from './footer';
 /* So this is our homepage, yo jess, u gonna add the navigation links to catalog and cart pages here */
 
 
@@ -22,7 +23,9 @@ export default function Home() {
             great learning experience!
           </p>
         </div>
-        {/* For april 3rd, the navbar and footer components will go in the main tag, so somewhere around here i think*/}
+          <div>
+            <Footer />
+          </div>
       </main>
     </div>
   );
