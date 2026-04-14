@@ -1,11 +1,21 @@
 import FooterLogo from "./FootLogo";
 import FooterSocials from "./FooterSocials";
+import {useRef} from "react";
 
 export default function Footer() {
+  // const backTopRef = useRef<HTMLDivElement | null>(null);
   return (
     //footer container
+    
     <footer className="footer">
-
+      <button className="bttn" onClick={() => {
+        window.scrollTo({
+          behavior : 'smooth',
+          top : 0
+        })
+      }}> 
+          Back to top 
+        </button>
       {/*the main footer content*/}
       <div className="footer-container">
 
