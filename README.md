@@ -1,40 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+// Phase 2 readme file
 
-## Getting Started
+Project overview
+WordsMall is a application that allows curious users to roll
+and get random words, see the definition of said word, and
+also purchase and manage their favorate words that they coe
+across in their cart system.
 
-First, run the development server:
+//Component Structure
+Through phase 2, we used modular component archetecture to make
+sure that our code is reuseable and that our code is clean
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+A. Layout and navigation
+We have a wrapper component (layout.js) which makes sure that 
+the navbar and footer stay consistent across all pages.
+Navbar.js uses usePathname to ensure conditional styling
+which is for the active links, based on what page the user is on
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+B. Modular Footer
+Footer.js has the logic for the "back to the top" button.
+FootLogo.js and FooterSocials.js can be described as sub- components that we had, for better organization
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+C. We have CardHeader, CardBody and CardFooter instead of one 
+big file, for the WordCard, so that we can have better styling
+and code updates
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+//Routes and navigation
+Overall through our app, we wused file based routing
+for example:
+/ for home
+/catalog which has the api generated words and a filted seach bar
+/words/[id] which is dynamic and uses the useRouter hook whuch generates a profile page for every word
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+//State management
+We have a global state management using the API react contect
+CartContext is created in context/Cartcontext and provided in _app.js.
+This permits any component like catalog or the cart page to acess and modify the cart array (adding or removing words)
+Lastly as it relates to logic, it uses a useState hook to maintain the list of items and a .filter() method for removing items by the namr of the word
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+
+//Contributions for phase 2
+Raymond: Dynamic routing 
+Daniil: WordCard refactoring and search filtering logic
+Jessica: Navbar active link logic and footer modularization
+Samar: Global CartContext and "remove from cart" 
+Azrael: Footer "back to top" button
+
+// please see screenshots submitted on blackboard
+
