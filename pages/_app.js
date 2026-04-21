@@ -10,7 +10,8 @@ export default function App({ Component, pageProps }) {
   
   //This holds all the words the user clicks "buy" on.
   const [cart, setCart] = useState([]);
-
+  // Store current catalog words
+  const [words, setWords] = useState([]);
   
   // This will add a word to the cart Array
   const addtoCart = (word) => {
@@ -30,7 +31,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       {/* The CartContext.Provider shares the cart, addtoCart, removeCart, and clearCart with every page */}
-      <CartContext.Provider value={{ cart, addtoCart, removeCart, clearCart }}>
+      <CartContext.Provider value={{ cart, words, setWords, addtoCart, removeCart, clearCart }}>
         {/* Using the Layout component to automatically include Navbar and Footer */}
         <Layout>
           <Component {...pageProps} />

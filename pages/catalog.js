@@ -12,7 +12,8 @@ import CartContext from '../context/CartContext'; // edit by raymond - capitaliz
 
 export default function Catalog() {
 
-  const [words, setWords] = useState([]);
+  // get words state to save catalog words even after going to other pages
+  const { words, setWords } = useContext(CartContext);
   const [loading, setloading] = useState(false);
   const [search, setSearch] = useState("");
   //This grabs the addtoCart function so we can add words from this page.
@@ -40,14 +41,20 @@ export default function Catalog() {
 
         // get random definition
         const meanings = defRes.data[0].meanings;
-        const definitions = meanings[Math.floor(Math.random() * meanings.length)].definitions;
-        const randomDefinition = definitions[Math.floor(Math.random() * definitions.length)].definition;
         
-        console.log(defRes)
+        // save indexes to make that api call again later (on details page)
+        const randomMeaningIndex = Math.floor(Math.random() * meanings.length);
+        const definitions = meanings[randomMeaningIndex].definitions;
+
+        const randomDefinitionIndex = Math.floor(Math.random() * definitions.length);
+        const randomDefinition = definitions[randomDefinitionIndex].definition;
+
         newWords.push({
           id: i + 1,
           word: defRes.data[0].word,
           definition: randomDefinition,
+          meaningIndex: randomMeaningIndex,
+          definitionIndex: randomDefinitionIndex,
         })
       } catch {}
     }
@@ -76,6 +83,8 @@ export default function Catalog() {
         key={item.id}
         word={item.word}
         definition={item.definition}
+        meaningIndex = {item.meaningIndex}
+        definitionIndex = {item.definitionIndex}
         onBuy={() => addtoCart(item)} 
         inCart={cart.some((cartItem) => cartItem.word === item.word)}
       />

@@ -4,10 +4,10 @@ import Link from 'next/link'; /* April 11th: Imported Link for the dynamic routi
 
 // April 12th: divided into 3 smaller and reusable components
 
-function CardHeader({ word }) {
+function CardHeader({ word, meaningIndex, definitionIndex }) {
   return (
     // April 11th: Wrapped the word title in a Link component so clicking it takes you to the new details page
-    <Link href={`/words/${word.toLowerCase()}`}>
+    <Link href={`/words/${word.toLowerCase()}-${meaningIndex}-${definitionIndex}`}>
       {/* April 9th: display the word */}
       {/* April 9th: Added by raymond for proper header scaling */}
       {/* April 11th: Added cursor-pointer and hover colors so users know it is clickable now */}
@@ -44,12 +44,12 @@ function CardFooter({ onBuy, inCart }) {
 }
 
 /* April 9th: i forgot who's responsibility this was, but i updated it, Raymond Apr 9 */
-export default function WordCard({ word, definition, onBuy, inCart}) {
+export default function WordCard({ word, definition, meaningIndex, definitionIndex, onBuy, inCart}) {
   return (
     // April 9th: main card container
     /* April 9th: Added by raymond for the blue/gold word box style */
     <div className="word-card-box">
-      <CardHeader word={word} />
+      <CardHeader word={word} meaningIndex={meaningIndex} definitionIndex={definitionIndex} />
       <CardBody definition={definition} />
       <CardFooter onBuy={onBuy} inCart={inCart} />
     </div>
