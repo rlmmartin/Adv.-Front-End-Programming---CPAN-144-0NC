@@ -39,12 +39,12 @@ export default function WordDetails() {
     axios
       .get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
       .then((response) => {
-        console.log(response)
         // to get rid of repetitive code
         const wordData = response.data[0].meanings[meaningIndex];
-        // fill the word details state
-        // the "?" make sure that the program does not crash even if some properties do not exist
-        // which is possible, since this api is inconsistent
+        // fill the word details state;
+        // the "?" make sure that the program does not
+        // crash even if some properties do not exist
+        // which is possible, since this api is inconsistent;
         // "?? null" set the value to null if an error occurs
         setWordDetails({
           word: word,

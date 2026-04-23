@@ -20,7 +20,7 @@ export default function Catalog() {
   const { addtoCart, cart } = useContext(CartContext);
   const WORDS_PER_ROLL = 10;
 
-  // fills the "words" array with 0-5 random words 
+  // fills the "words" array with 0-10 random words 
   // (dictionary API may not have the definitions for some words)
   async function getWords() {
     // API call goes here
